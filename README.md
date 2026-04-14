@@ -22,7 +22,8 @@
 ## ✍️ 作者
 
 - 原創作者：你（洪瑋志）
-- AI協作：ChatGPT
+- AI協作：ChatGPT/CLAUDE
+- 
 
 ---
 
