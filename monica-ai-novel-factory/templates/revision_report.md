@@ -27,7 +27,7 @@
 - `character_state.md`：
 - `foreshadowing.md`：
 
-## Hermes 續寫指示
+## 下一步續寫指示
 
 - 下一章限制條件：
 - 不可發生事項：

@@ -15,15 +15,15 @@
 
 PC：
 
-- 跑 Hermes
-- 跑 Python pipeline
+- 跑 Python workflow
+- 呼叫 Gemini API
 - 保存章節 Markdown
 - 執行大量檔案處理
 
 遠端工具：
 
-- Google Remote Desktop
 - SSH
+- Remote Desktop
 - GitHub
 
 ## 建議

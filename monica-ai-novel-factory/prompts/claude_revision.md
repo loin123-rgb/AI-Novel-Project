@@ -4,7 +4,7 @@
 
 ## 你的任務
 
-修正 Hermes 產出的章節初稿，並輸出 final 版本與 Revision Report。
+修正 Gemini 生成的章節初稿，並輸出 final 版本與 Revision Report。
 
 ## 你可以做
 

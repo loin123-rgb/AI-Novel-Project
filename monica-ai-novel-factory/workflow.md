@@ -10,7 +10,12 @@
 - `characters/` 必要片段
 - `world/` 必要片段
 
-## STEP 2：Hermes 生成初稿
+## STEP 2：Gemini API 生成初稿
+
+執行方式：
+
+- Python workflow 組裝 prompt
+- Gemini API 生成章節正文
 
 輸出：
 
@@ -18,12 +23,12 @@
 
 規則：
 
-- 不可改設定。
-- 必須推進劇情。
-- 保留情緒與畫面。
-- 不處理深層邏輯修正。
+- 不可改設定
+- 必須推進劇情
+- 保留情緒與畫面
+- 不處理深層邏輯修正
 
-## STEP 3：Hermes 自檢，可選
+## STEP 3：Gemini 自檢，可選
 
 檢查：
 
@@ -67,7 +72,7 @@ Claude 必須輸出 Revision Report，格式見：
 
 ## STEP 6：回餵系統
 
-回 Hermes：
+回 Python workflow / Gemini prompt：
 
 - 語氣調整
 - 節奏模式
@@ -84,15 +89,15 @@ Claude 必須輸出 Revision Report，格式見：
 
 Codex 動作：
 
-- 同步所有狀態變更。
-- 確保設定一致。
-- 只採納 Claude 報告中確認合理的變更。
-- 不把正文直接混入設定。
+- 同步所有狀態變更
+- 確保設定一致
+- 只採納 Revision Report 中確認合理的變更
+- 不把正文直接混入設定
 
 ## STEP 8：進入下一章
 
 循環：
 
 ```text
-Codex → Hermes → Claude → 回餵 → Codex → 下一章
+Codex → Python Workflow + Gemini API → Claude → 回餵 → Codex → 下一章
 ```

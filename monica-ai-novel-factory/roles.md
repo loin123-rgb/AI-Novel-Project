@@ -4,31 +4,34 @@
 
 負責：
 
-- 建立與維護 `設定.md`
-- 管理故事架構
+- 建立與維護設定文件
+- 管理故事架構與章節流程
 - 更新 `story_state.md`
 - 更新 `character_state.md`
 - 更新 `foreshadowing.md`
-- 整理章節流程與檔案命名
+- 控制檔名、資料夾與流程一致性
 
 不負責：
 
-- 生成章節正文
-- 直接重寫小說段落
+- 直接生成章節正文
+- 把正文當成狀態檔寫回
 
-## Hermes：量產
+## Python Workflow + Gemini API：初稿生成
 
 負責：
 
-- 依章綱生成章節初稿
-- 產出 `chapter_xxx_draft.md`
-- 可選擇進行簡單自檢並產出 `chapter_xxx_draft_v2.md`
+- 讀取章綱與狀態檔
+- 生成章節初稿
+- 可選擇進行簡單自檢
+- 輸出：
+  - `chapter_xxx_draft.md`
+  - `chapter_xxx_draft_v2.md`（可選）
 
 不負責：
 
 - 修改設定
-- 修正深層邏輯
 - 回寫狀態檔
+- 自行修復重大邏輯衝突
 
 ## Claude：修正與回饋
 
@@ -39,16 +42,17 @@
 - 修對話
 - 修邏輯
 - 檢查人設與世界觀
-- 輸出 `chapter_xxx_final.md`
-- 輸出 `Revision Report`
+- 輸出：
+  - `chapter_xxx_final.md`
+  - `Revision Report`
 
 不負責：
 
-- 正式改設定檔
-- 擅自新增世界觀硬設定
+- 正式修改設定檔
+- 擅自新增硬設定
 
 ## 權限邊界
 
-- Hermes 只能產生正文初稿。
+- 初稿生成模型只能產生正文草稿。
 - Claude 只能修稿與提出建議。
 - Codex 是唯一能正式更新設定與狀態的角色。

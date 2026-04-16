@@ -1,35 +1,43 @@
 # MONICA AI 小說工廠
 
-這個資料夾整理「Codex + Hermes + Claude」三代理分工的小說量產流程。
+這個專案現在採用 `Codex + Python Workflow + Gemini API + Claude` 的協作架構，不再依賴 Hermes。
 
-## 核心定位
+## 角色定位
 
-- `Codex`：結構控制與狀態管理，只負責設定、架構、狀態更新，不直接生成正文。
-- `Hermes`：章節初稿量產，只負責依既有資料生成初稿，不修改設定與狀態。
-- `Claude`：修稿、邏輯檢查與回饋，輸出 final 版本與 Revision Report。
+- `Codex`
+  - 負責結構控制、狀態更新、流程整理
+- `Python Workflow + Gemini API`
+  - 負責章節初稿生成與可選自檢
+- `Claude`
+  - 負責修稿、邏輯檢查、輸出 Revision Report
 
 ## 最小可執行流程
 
-1. Codex 建立並維護必要 Markdown。
-2. Hermes 依章綱產出 `chapter_xxx_draft.md`。
-3. Claude 修稿並產出 `chapter_xxx_final.md` 與 `Revision Report`。
-4. Codex 依 report 更新 `story_state.md`、`character_state.md`、`foreshadowing.md`。
-5. Hermes 依最新狀態續寫下一章。
+1. Codex 建立與維護核心 Markdown。
+2. Python workflow 讀取 `style_guide.md`、`chapter_outline.md`、`story_state.md`。
+3. Gemini API 生成 `chapters/chapter_xxx_draft.md`。
+4. Claude 修稿並輸出：
+   - `chapters/chapter_xxx_final.md`
+   - `reports/chapter_xxx_revision_report.md`
+5. Codex 根據 Revision Report 更新：
+   - `state/story_state.md`
+   - `templates/character_state.md`
+   - `templates/foreshadowing.md`
 
-## 主要文件
+## 文件索引
 
-- [workflow.md](workflow.md)：完整單章循環流程。
-- [roles.md](roles.md)：三代理角色邊界。
-- [quality_control.md](quality_control.md)：A/B/C 級品質分流。
-- [android_pc_mode.md](android_pc_mode.md)：手機/平板 + PC 操作模式。
-- [templates/](templates/)：狀態檔與報告模板。
-- [prompts/](prompts/)：Hermes、Claude、Codex 提示詞模板。
-- [automation/pipeline.py](automation/pipeline.py)：Python 自動化流程骨架。
+- [workflow.md](workflow.md)：單章標準流程
+- [roles.md](roles.md)：角色分工與權限邊界
+- [quality_control.md](quality_control.md)：A/B/C 級品質控制
+- [android_pc_mode.md](android_pc_mode.md)：手機、平板、PC 的工作分工
+- [templates/](templates/)：狀態模板與 Revision Report 模板
+- [prompts/](prompts/)：Gemini、Claude、Codex 使用的提示詞
+- [automation/pipeline.py](automation/pipeline.py)：Python 工作流骨架
 
-## 最重要原則
+## 架構原則
 
-1. 正文與設定一定分開。
-2. 修改正文後，一定要回寫 state。
-3. Hermes 永遠不能改規則。
-4. Claude 只能建議改設定。
-5. Codex 才能正式改設定。
+1. 正文與設定必須分離。
+2. 狀態更新只能由 Codex 正式回寫。
+3. 初稿生成由 Python workflow 呼叫模型完成，不直接讓模型改設定。
+4. Claude 只能修稿與提出建議，不直接改狀態檔。
+5. 之後若 Gemini API 遇到配額限制，可保留本機 Ollama 作為備援，但不改動整體流程。

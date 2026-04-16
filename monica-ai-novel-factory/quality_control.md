@@ -12,10 +12,10 @@
 
 處理：
 
-- Claude 輕修即可。
-- Codex 更新狀態。
+- Claude 輕修即可
+- Codex 更新狀態
 
-## B 級：Hermes 修
+## B 級：Gemini 自檢後再修
 
 條件：
 
@@ -26,10 +26,10 @@
 
 處理：
 
-- Hermes 先產出 `draft_v2`。
-- Claude 再做 final 修稿。
+- Python workflow 可先要求 Gemini 產出 `draft_v2`
+- Claude 再做 final 修稿
 
-## C 級：Claude 修
+## C 級：Claude 深修
 
 條件：
 
@@ -41,6 +41,6 @@
 
 處理：
 
-- Claude 深修。
-- Revision Report 必須清楚列出衝突點。
-- Codex 決定是否回寫狀態或調整章綱。
+- Claude 深修
+- Revision Report 必須清楚列出衝突點
+- Codex 決定是否回寫狀態或調整章綱

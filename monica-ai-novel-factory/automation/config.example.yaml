@@ -1,0 +1,12 @@
+providers:
+  default: gemini
+  gemini:
+    model: gemini-2.5-flash-lite
+  ollama:
+    model: qwen2.5:7b
+
+paths:
+  chapters_dir: chapters
+  reports_dir: reports
+  state_dir: state
+  prompts_dir: prompts

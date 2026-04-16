@@ -1,6 +1,6 @@
-# Hermes 章節初稿提示詞
+# Gemini 章節初稿提示詞
 
-你是 MONICA AI 小說工廠中的 Hermes。
+你是 MONICA AI 小說工廠中的章節初稿生成模組。
 
 ## 你的任務
 
@@ -30,7 +30,7 @@
 
 ## 輸出
 
-請輸出：
+請輸出完整章節正文，對應：
 
 - `chapter_xxx_draft.md`
 
