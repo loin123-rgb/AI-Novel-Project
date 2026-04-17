@@ -38,7 +38,12 @@ def write_md(path: Path, content: str) -> None:
 
 
 def call_gemini(prompt: str, model: str = "gemini-2.5-flash-lite") -> str:
-    raise NotImplementedError("Wire this to Gemini API.")
+    import os
+    from app.providers.gemini import GeminiProvider
+    api_key = os.getenv("GEMINI_API_KEY", "")
+    if not api_key:
+        raise RuntimeError("GEMINI_API_KEY is not set.")
+    return GeminiProvider(model=model, api_key=api_key).generate(prompt)
 
 
 def call_claude(prompt: str) -> str:
